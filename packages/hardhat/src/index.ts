@@ -68,7 +68,7 @@ subtask(TASK_TYPECHAIN_GENERATE_TYPES)
     const cwd = config.paths.root
 
     const { glob } = await import('typechain')
-    const allFiles = glob(cwd, [`${config.paths.artifacts}/!(build-info)/**/+([a-zA-Z0-9_]).json`])
+    const allFiles = glob(cwd, [`${config.paths.artifacts}/!(build-info)/**/+([a-zA-Z0-9_$]).json`])
     if (typechainCfg.externalArtifacts) {
       allFiles.push(...glob(cwd, typechainCfg.externalArtifacts, false))
     }
